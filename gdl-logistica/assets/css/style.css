@@ -1,0 +1,97 @@
+.card-text {
+  overflow: hidden !important;
+display: -webkit-box !important;
+-webkit-line-clamp: 4 !important;
+-webkit-box-orient: vertical !important;
+}
+
+.noticias .card_cat {
+  overflow: hidden;
+  position: relative;
+  margin: 30px 0;
+  border-radius: 20px;
+}
+
+.card_cat {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  word-wrap: break-word !important;
+  background-color: #fff !important;
+  background-clip: border-box !important;
+  border: 1px solid rgba(0,0,0,.125) !important;
+  border-radius: 20px !important;
+}
+
+.card_cat {
+  max-width: 300px;
+  min-height: 340px;
+  max-height: 450px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 30px 0 !important;
+  border-radius: 20px !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+.card_cat .card-img-top {
+  width: 100%;
+  max-height: 130px;
+}
+
+.card_cat .overlay-noticias{
+  background-image: url(https://www.gdllogistica.com.br/images/overlay-noticias.png?48cb20f86cd561b96fe22e84c8b96e0a);
+  bottom: -89px;
+  padding-top: 10rem;
+  height: 308px;
+  position: absolute;
+  width: 100%;
+}
+.img__more-viewd  {
+  object-fit: cover;
+    height: 100%;
+    width: 100%;
+    max-width: 100px;
+    min-height: 60px;
+    max-height: 60px;
+}
+
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #212529;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: var(--color-orange);;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}

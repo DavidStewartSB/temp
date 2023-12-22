@@ -1,0 +1,9 @@
+name: GDL Logistica
+description: "ModalGR para GDL "
+author: David Stewart
+homepage: 'https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/download/'
+authorCode: ModalGR
+code: modal
+parent: ''
+database: '0'
+form: fields.yaml

@@ -1,0 +1,15 @@
+
+    <p><img src="{{ post.featured_images.first.getThumb('auto', 'auto') }}" class="img-fluid w-100" alt="{{post.title}}"></p>
+    <div class="dados-noticia">
+        <div class="d-flex justify-content-between align-items-center">
+
+            <p>{{ post.categories[0].name }}</p>
+            <span class="">10 julho 2022</span>
+        </div>
+    <h3 class="titulo_ler laranja robotoslab600">{{post.title}}</h3>
+    <span class="textonoticia">
+       <p>{{ post.content }}</p>
+        <p><a href="javascript: history.go(-1)" class="btn btn-primary btn-transp float-right">Voltar</a></p>
+    </span>
+    <div class="spaco50"></div>
+</div>

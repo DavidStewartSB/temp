@@ -1,0 +1,33 @@
+
+<div class="col-md-4" style="margin-bottom: 10px;">
+    <a href="{{ post.url }}">
+    </a>
+    <div class="hovereffect">
+        {% if post.featured_images %}
+        <a href="{{ post.url }}">
+
+            <img width="761" height="330" src="({{ post.featured_images.path }})"
+                class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" loading="lazy" srcset="{{ post.banner.path }} 761w,
+                {{ post.banner.path }} 760w"
+                sizes="(max-width: 761px) 100vw, 761px">
+
+        </a>
+        {% else %}
+        <div class="card-banner {{ bannerCss|default('') }}"
+            style="background-image:url('https://dummyimage.com/850x350/dee2e6/6c757d.jpg')"></div>
+        {% endif %}
+
+        <div class="overlay"><a
+                href="{{post.url}}">
+            </a>
+            <h2 class="laranja"><a href="{{ 'blog/post'|page({ slug: post.slug, id: post.id }) }}" class="stretched-link">{{ post.title
+            }}</a><a
+                    href="{{post.url}}"
+                    class="voa float-right">
+                    <img src="https://www.gdllogistica.com.br/img/mais.png" alt="{{post.tilte}}">
+                </a>
+            </h2>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+title = "Categorias"
+url = "/noticias/categoria/:slug"
+layout = "default"
+description = "Viewing blog posts in a specific category."
+hidden = "0"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "noticias/categoria"
+postPage = "noticias/:slug"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = "0"
+categoryPage = "noticias/categoria/:slug"
+==
+<header class="principal-nav-interno">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active"
+                style="background-image: url('https://www.gdllogistica.com.br/img/topo_noticia_ler.jpg')">
+                <a href="#">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        {% set posts = blogPosts.posts %}
+        <div class="col-md-9 aos-init aos-animate gap-5" data-aos="zoom-in-up">
+            <h1 class="result_">Resultados da busca por "<span></span>"</h1>
+            <div class="new__card" style="display:flex; flex-wrap:wrap">
+                {% for post in posts %}
+                <div class="col-md-6 aos-init aos-animate" data-aos="zoom-in-up">
+                    <div class="card_cat">
+                        <div class="overlay-noticias">
+                            <p class="text-center">
+                                <a href="/noticias/{{post.slug}}">
+                                    <img src="https://www.gdllogistica.com.br/img/plus.png" class="mx-auto d-block" alt="">
+                                </a>
+                            </p>
+                        </div>
+                        <img class="card-img-top" style="    width: 100%;
+                        border-top-left-radius: calc(0.25rem - 1px);
+                        border-top-right-radius: calc(0.25rem - 1px);" width="300" height="130" src="{{ post.featured_images.first.getThumb(300, 130) }}"
+                            alt="{{post.title}}">
+                        <div class="card-body">
+                            <h6 class="card-categoria"></h6>
+                            <h5 class="card-title">{{ post.title }}
+                            </h5>
+                            <p class="card-text">{{ post.excerpt }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="col-md-3" data-aos="fade-in">
+            {% partial 'widgets/search' %}
+            {% partial 'widgets/cat-list' %}
+        </div>
+    </div>
+</div>

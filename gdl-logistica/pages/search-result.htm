@@ -1,0 +1,41 @@
+[searchResults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Your search did not return any results."
+visitPageMessage = "Visit page"
+==
+function onStart()
+{
+    $query = Request::get('q');
+    $query = str_replace('ё', 'e', $query);
+    $this->page->components['searchResults']->forceQuery($query);
+}
+<h2>Search results for {{ searchResults.query }}</h2>
+
+{% component 'searchResults' %}
+
+
+
+<!-- 
+{% component 'searchResults' %} está no diretorio abaixo 
+"plugins/offiline/sitesearch/components/searchresult/content.htm"
+    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-in-up">
+    <div class="card_cat">
+        <div class="overlay-noticias">
+            <p class="text-center">
+                <a href="{{ result.url }}">
+                    <img src="https://www.gdllogistica.com.br/img/plus.png" class="mx-auto d-block"
+                        alt="">
+                </a>
+            </p>
+
+        </div>
+        <img class="card-img-top" src="{{ result.thumb.getThumb(120, auto) }}"
+            alt="{{post.title}}">
+        <div class="card-body">
+            <h6 class="card-categoria"></h6>
+            <h5 class="card-title">{{ result.title | raw }}</h5>
+            <p class="card-text ">{{ result.excerpt | raw }}</p>
+        </div>
+    </div>
+</div> -->

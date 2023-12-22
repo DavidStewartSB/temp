@@ -1,0 +1,159 @@
+url = "/trabalhe-conosco/:id"
+layout = "default"
+title = "Trabalhe Conosco"
+
+[staticBreadcrumbs]
+
+[builderDetails]
+modelClass = "Gdlvagas\Jobs\Models\Job"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "nome"
+notFoundMessage = "Registro não encontrado"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set noRecordsMessage = builderDetails.noRecordsMessage %}
+{% set detailsPage = builderDetails.detailsPage %}
+{% set detailsKeyColumn = builderDetails.detailsKeyColumn %}
+{% set detailsUrlParameter = builderDetails.detailsUrlParameter %}
+<header class="principal-nav-interno">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active"
+                style="background-image: url('https://www.gdllogistica.com.br/img/topo_noticia_ler.jpg')">
+                <a href="#">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="trabalhe container">
+    <div class="spaco50"></div>
+
+    {% if record %}
+    <div class="fundobranco card-trabalhe" data-aos="zoom-in-up" style="margin: auto; width:fit-content;">
+        <p><img width="100%" src="{{record.featured_thumb.path}}" class="img-fluid" alt="" /></p>
+        <div class="dados-noticia">
+            <p> <span class="float-right">{{staticBreadcrumbs}}</span></p>
+            <h3 class="titulo_ler laranja robotoslab600">{{record.nome}}</h3>
+            <span class="textonoticia">
+                {{record.descricao|raw}}
+                <p><a href="javascript: history.go(-1)" class="btn btn-primary btn-transp float-right">Voltar</a></p>
+            </span>
+            <div class="spaco50"></div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="spaco50"></div>
+</div>
+<!-- trabalhe -->
+<div class="section trabalhe">
+    <div class="container">
+        <div class="spaco50"></div>
+        <div class="row">
+            <div class="spaco50"></div>
+            <div class="col-md-6">
+                <div id="contato trabalhe">
+                    <div role="form" class="wpcf7" id="wpcf7-f249-o2" lang="pt-BR" dir="ltr">
+                        <div class="screen-reader-response">
+                            <p role="status" aria-live="polite" aria-atomic="true"></p>
+                            <ul></ul>
+                        </div>
+                        <form action="/" method="post" class="wpcf7-form init contact-page"
+                            enctype="multipart/form-data" novalidate="novalidate" data-status="init">
+                            <div style="display: none;">
+                                <input type="hidden" name="_wpcf7" value="249">
+                                <input type="hidden" name="_wpcf7_version" value="5.5.6.1">
+                                <input type="hidden" name="_wpcf7_locale" value="pt_BR">
+                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f249-o2">
+                                <input type="hidden" name="_wpcf7_container_post" value="0">
+                                <input type="hidden" name="_wpcf7_posted_data_hash" value="">
+                            </div>
+                            <div class="form-group">
+                                <span class="wpcf7-form-control-wrap nome">
+                                    <input type="text" name="name" value="" size="40"
+                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control"
+                                        aria-required="true" aria-invalid="false" placeholder="'Your name">
+                                    <span role="alert" class="wpcf7-not-valid-tip" id="name-alert"></span>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6 " style="padding-left: 0;">
+                                    <span class="wpcf7-form-control-wrap email">
+                                        <input type="text" name="email" value="" size="40"
+                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control"
+                                            aria-required="true" aria-invalid="false" placeholder="'Your e-mail">
+                                        <span role="alert" class="wpcf7-not-valid-tip" id="email-alert"></span>
+                                    </span>
+                                </div>
+                                <div class="form-group col-md-6" style="padding-right: 0;">
+                                    <span class="wpcf7-form-control-wrap tel">
+                                        <input type="text" name="phone" value="" size="40"
+                                            class="wpcf7-form-control wpcf7-text form-control" aria-invalid="false"
+                                            placeholder="'Your phone number">
+                                        <span role="alert" class="wpcf7-not-valid-tip" id="phone-alert"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="form-group">
+                                <span class="wpcf7-form-control-wrap funcao">
+                                    <input type="text" name="job" value="" size="40"
+                                        class="wpcf7-form-control wpcf7-text form-control" aria-invalid="false"
+                                        placeholder="'Job position">
+                                    <span role="alert" class="wpcf7-not-valid-tip" id="job-alert"></span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <span class="wpcf7-form-control-wrap curric">
+                                    <input style="border: 1px solid var(--color-orange);" type="file" name="resume"
+                                        size="40" class="wpcf7-form-control wpcf7-file form-control"
+                                        accept=".pdf,.doc,.docx" aria-invalid="false">
+                                    <span role="alert" class="wpcf7-not-valid-tip" id="resume-alert"></span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <span class="wpcf7-form-control-wrap msg">
+                                    <textarea name="message" cols="40" rows="10"
+                                        class="wpcf7-form-control wpcf7-textarea form-control" aria-invalid="false"
+                                        placeholder="'Message"></textarea>
+                                    <span role="alert" class="wpcf7-not-valid-tip" id="message-alert"></span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <span class="wpcf7-form-control-wrap news">
+                                    <span class="wpcf7-form-control wpcf7-checkbox">
+                                        <span class="wpcf7-list-item first last">
+                                            <input type="checkbox" name="send_me" value="1" />
+                                            <span class="wpcf7-list-item-label">Envie uma cópia para mim</span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Enviar"
+                                    class="wpcf7-form-control has-spinner wpcf7-submit btn btn-primary btn-transp">
+                            </div>
+                            <div class="wpcf7-response-output" id="response-output" aria-hidden="true">
+                                <p>'Sent with success'</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="robotoslab600 grande text-left">
+                    <p class="azulgdl">Trabalhe </br><span class="laranja">Conosco</span></p>
+                </h2>
+                <span class="azulgdl text-left">
+                    <p>
+                        Para nos fazer uma pergunta ou solicitar um orçamento, preencha o formulário.</br>
+                        Responderemos o mais breve possível
+                    </p>
+                </span>
+            </div>
+        </div>
+        <div class="spaco50"></div>
+    </div>
+    <div class="col-md-1">&nbsp;</div>

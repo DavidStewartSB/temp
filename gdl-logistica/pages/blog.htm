@@ -1,0 +1,101 @@
+title = "Noticias"
+url = "/noticias/:page?"
+layout = "default"
+description = "The main blog page, with all posts."
+hidden = "0"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = "10"
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "noticias/categorias"
+postPage = "noticias/:slug"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = "0"
+categoryPage = "noticias/category"
+
+[searchResults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Your search did not return any results."
+visitPageMessage = "Visit page"
+==
+function onStart()
+{
+    $query = Request::get('q');
+    $query = str_replace('ё', 'e', $query);
+    $this->page->components['searchResults']->forceQuery($query);
+}
+==
+<header class="principal-nav-interno">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active"
+                style="background-image: url('https://www.gdllogistica.com.br/img/2018/08/topo_noticias.jpg')">
+                <a href="#">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="section noticias">
+    <div class="container">
+        <div class="row">
+            {% if query %}
+            <div class="col-md-9 aos-init aos-animate" data-aos="zoom-in-up">
+                {% component 'searchResults' %}
+            </div>
+            {% else %}
+            {% set posts = blogPosts.posts %}
+            <div class="col-md-9 aos-init aos-animate" data-aos="zoom-in-up">
+                <h1 class="result_">Resultados da busca por "<span></span>"</h1>
+                <div class="new__card" style="display:flex; flex-wrap:wrap">
+                    {% for post in posts %}
+                    <div class="col-md-6 aos-init aos-animate" data-aos="zoom-in-up">
+                        <div class="card_cat">
+                            <div class="overlay-noticias">
+                                <p class="text-center">
+                                    <a href="/noticias/{{post.slug}}">
+                                        <img src="https://www.gdllogistica.com.br/img/plus.png" class="mx-auto d-block"
+                                            alt="">
+                                    </a>
+                                </p>
+
+                            </div>
+                            <img class="card-img-top" src="{{ post.featured_images.first.getThumb(500, 'auto') }}"
+                                alt="{{post.title}}">
+                            <div class="card-body">
+                                <h6 class="card-categoria"></h6>
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text ">{{ post.excerpt }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-md-3" data-aos="fade-in">
+                {% partial 'widgets/search' %}
+                <div>
+                    {% set categories = blogCategories.categories %}
+                    {% set currentCategorySlug = blogCategories.currentCategorySlug %}
+
+                    <div class="catnoticias" data-aos="fade-up">
+                        <h3 class="sidetitulo">Categorias</h3>
+                        {% for category in categories %}
+                        <p class="btn btn-primary btn-cats">
+                            <a href="/noticias/categoria/{{ category.slug }}" rel="bookmark"> {{ category.name }}</a>
+                        </p>
+                        {% endfor %}
+                        <div class="spaco50"></div>
+                    </div>
+                </div>
+                {% partial 'widgets/mais-vistos' %}
+            </div>
+            <div class="spaco50"></div>
+        </div>
+    </div>
+</div>

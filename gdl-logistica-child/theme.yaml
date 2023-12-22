@@ -1,0 +1,9 @@
+name: GDL Logistica
+description: "Modal para GDL "
+author: David Stewart
+homepage: 'https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/download/'
+authorCode: David Stewart
+code: modal
+parent: gdl-logistica
+database: '0'
+form: fields.yaml

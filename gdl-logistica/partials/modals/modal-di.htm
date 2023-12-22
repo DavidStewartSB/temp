@@ -1,0 +1,67 @@
+        <!--  MODAL DI  -->
+        <div class="sombra modal_hidden"></div>
+        <div class="modal-container modal_hidden" id="modal-di" style=" max-height: 90vh; overflow-y: scroll;">
+            <div class="close-modal">X</div>
+            <form action="" id='DI' file='true' method="POST" role="form" class="wpcf7-form init contact-page" enctype="multipart/form-data" data-status="init" style="width: 90%;">
+                <h2>Formulário DI</h2>
+                <div class="form-group">
+                    <span class="wpcf7-form-control-wrap nome">
+                        <input type="text" name="numero" value="" id='numeroDI' size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Número DI">
+                        <span role="alert" class="wpcf7-not-valid-tip" id="numero-alert"></span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="wpcf7-form-control-wrap email">
+                        <input type="text" name="email" id='emailDI' value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Seu e-mail">
+                        <span role="alert" class="wpcf7-not-valid-tip" id="email-alert"></span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="wpcf7-form-control-wrap curric">
+                        <div style="margin: auto; "><label style="width: 100%;text-align: center;" class='caixa-file file1' for='anexo-di'>Adicione um arquivo
+                            </label>
+                            <input id='anexo-di' value='' style="display: none;" type="file" multiple name="anexo-di" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                        </div>
+                        <div style="margin: auto; "><label style="width: 100%;text-align: center;" class='caixa-file modal_hidden file2' for='anexo-di2'>Adicione um arquivo
+                            </label>
+                            <input id='anexo-di2' value='' style="display: none;" type="file" multiple name="anexo-di2" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                        </div>
+                        <div style="margin: auto; "><label style="width: 100%;text-align: center;" class='caixa-file modal_hidden file3' for='anexo-di3'>Adicione um arquivo
+                            </label>
+                            <input id='anexo-di3' value='' style="display: none;" type="file" multiple name="anexo-di3" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                        </div>
+                        <div style="margin: auto; "><label style="width: 100%;text-align: center;" class='caixa-file modal_hidden file4' for='anexo-di4'>Adicione um arquivo
+                            </label>
+                            <input id='anexo-di4' value='' style="display: none;" type="file" multiple name="anexo-di4" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                        </div><span role="alert" class="wpcf7-not-valid-tip" id="anexo-di-alert"></span>
+                        <p>Only files of the following types are accepted: .pdf, .xls, .xml
+                            </br>
+                            A soma dos arquivos não pode ultrapassar 10Mb</p>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="wpcf7-form-control-wrap msg">
+                        <textarea name="message" id='messageDI' cols="40" rows="5" class="wpcf7-form-control wpcf7-textarea form-control" aria-invalid="false" placeholder="Mensagem"></textarea>
+                        <span role="alert" class="wpcf7-not-valid-tip" id="message-alert"></span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="wpcf7-form-control-wrap news">
+                        <span class="wpcf7-form-control wpcf7-checkbox">
+                            <span class="wpcf7-list-item first last">
+                                <input type="checkbox" name="send_me" value="1" />
+                                <span class="wpcf7-list-item-label">Me envie uma cópia</span>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group" style="display: flex">
+                    <div style="margin:auto"></div>
+                    <span role="alert" class="wpcf7-not-valid-tip" id="g-recaptcha-response-alert"></span>
+                </div>
+                <div class="form-group">
+                    <input style="margin-right: 10px;" type="submit" id="submit_di" value="Enviar" class="wpcf7-form-control has-spinner wpcf7-submit btn btn-primary btn-transp">
+                    <input type="button" class="wpcf7-form-control has-spinner wpcf7-submit btn btn-primary btn-transp" value="Limpar" id="btn-reset" />
+                </div>
+            </form>
+        </div>

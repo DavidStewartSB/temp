@@ -1,0 +1,26 @@
+url = "/blog"
+
+[blogPosts]
+handle = "Blog\Post"
+resultsPerPage = 2
+pageNumber = "{{ :page }}"
+sortColumn = "published_at"
+==
+
+<div class="maisvistas" data-aos="fade-up">
+    <h3 class="sidetitulo">Mais lidas</h3>
+    <div class="row">
+        {% for post in blogPosts.posts %}
+        <div class="d-flex mb-2 gap-3 align-items-center">
+            <img width="80" height="60" src="{{ post.featured_images.first.getThumb('auto', 'auto') }}" class="img__more-viewd pr-5" alt="{{post.title}}">
+            <div class="">
+                <small class="smallnoticia">{{ post.published_at|date('M d, Y') }}</small>
+                <p class="azulgdl">
+                    <a href="/noticias/{{post.slug}}">{{ post.title }}</a>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="spaco50"></div>
+</div>

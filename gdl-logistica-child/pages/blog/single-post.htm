@@ -1,0 +1,75 @@
+url = "/noticias/:slug"
+layout = "default"
+title = "Blog Post"
+description = "Post individual"
+hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "noticias/categoria"
+
+[forumEmbedTopic]
+embedCode = "{{ :slug }}"
+channelSlug = "channel-orange"
+memberPage = 404
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "noticias/categoria/:slug"
+==
+<?php
+function onEnd()
+{
+    $this->page->title = $this->post->title;
+}
+?>
+==
+<header class="principal-nav-interno">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active"
+                style="background-image: url('https://www.gdllogistica.com.br/img/topo_noticia_ler.jpg')">
+                <a href="#">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="section noticias">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 fundobranco aos-init aos-animate" data-aos="zoom-in-up">
+                {% partial 'blog/single-post' slug=postSlug %}
+            </div>
+            <div class="col-md-1">&nbsp;</div>
+
+            <div class="col-md-3 aos-init aos-animate" data-aos="fade-in">
+                {% partial 'widgets/search' %}
+                <div>
+                    {% set categories = blogCategories.categories %}
+                    {% set currentCategorySlug = blogCategories.currentCategorySlug %}
+                    <!--Categoria single-->
+                    <div class="catnoticias" data-aos="fade-up">
+                        <h3 class="sidetitulo">Categorias</h3>
+                        {% set categories = blogCategories.categories %}
+
+                        {% if categories %}
+                            {% for category in categories %}
+                                <p class="btn btn-primary btn-cats">
+                                    <a href="{{ category.url }}" rel="bookmark">{{ category.name }}</a>
+                                </p>
+                            {% endfor %}
+                        {% else %}
+                            <p>Nenhuma categoria encontrada.</p>
+                        {% endif %}
+                        <div class="spaco50"></div>
+                    </div>
+                </div>
+                {% partial 'widgets/mais-vistos' post=post %}
+                <div class="spaco50"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

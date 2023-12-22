@@ -1,0 +1,189 @@
+<div class="sombra modal_hidden"></div>
+<div class="modal-container modal_hidden" id="modal-lr" style=" max-height: 90vh; overflow-y: scroll;">
+    <div class="close-modal">X</div>
+    <form action="https://www.gdllogistica.com.br/UnrkyDvhuBywowaRrLyj" id="LR" file="true" method="POST" role="form" class="wpcf7-form init contact-page" enctype="multipart/form-data" data-status="init" style="width: 90%;">            
+        <h2>Solicitação de Carregamento</h2>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap curric mb-3">
+                <div style="margin: auto; "><label style="width: 100%;text-align: center;" class="caixa-file file-lr1" for="anexo-lr1">Adicione um arquivo: NF DE ENTRADA</label>
+                    <input id="anexo-lr1" value="" style="display: none;" type="file" multiple="" name="anexo-lr1" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                    <span role="alert" class="wpcf7-not-valid-tip" id="anexo-lr1-alert"></span>
+                </div>
+                <div style="margin: auto; "><label style="width: 100%;text-align: center;" class="caixa-file file-lr2" for="anexo-lr2">Adicione um arquivo: PG OU EXONERAÇÃO ICMS</label>
+                    <input id="anexo-lr2" value="" style="display: none;" type="file" multiple="" name="anexo-lr2" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                    <span role="alert" class="wpcf7-not-valid-tip" id="anexo-lr2-alert"></span>
+                </div>
+                <div style="margin: auto; "><label style="width: 100%;text-align: center;" class="caixa-file file-lr3" for="anexo-lr3">Adicionar arquivos: DI, Extrato DI, BL e Outros</label>
+                    <input id="anexo-lr3" value="" style="display: none;" type="file" multiple="" name="anexo-lr3" size="40" class="wpcf7-form-control wpcf7-file form-control" accept=".pdf,.xml,.xls,.xlsx" aria-invalid="false">
+                    <span role="alert" class="wpcf7-not-valid-tip" id="anexo-lr3-alert"></span>
+                </div>
+                <div id="div-lr3"></div>
+                <p>Só são aceitos arquivos dos tipos: PDF, XML, XLS e XLSX
+                <br>    
+                A soma dos arquivos não pode ultrapassar 10Mb</p>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap nome mb-3">
+                <select name="unidade" class="wpcf7-form-control form-control wpcf7-select wpcf7-validates-as-required wpcf7-not-valid" aria-required="true" aria-invalid="true" aria-describedby="wpcf7-f1206-p1266-o1-ve-unidade">
+                    <option value="">Unidade</option>
+                    <!-- <option value="01 - 7953204">01 - 7953204</option> -->
+                    <option value="02 - 7953203">02 - 7953203</option>
+                </select>
+                <span role="alert" class="wpcf7-not-valid-tip" id="unidade-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap nome">
+                <input type="text" name="importador" value="" id="importador" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Importador">
+                <span role="alert" class="wpcf7-not-valid-tip" id="importador-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap nome">
+                <input type="text" name="adquirente" value="" id="adquirente" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Adquirente">
+                <span role="alert" class="wpcf7-not-valid-tip" id="adquirente-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap nome">
+                <input type="text" name="numero" value="" id="numeroDI" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Numero DI">
+                <span role="alert" class="wpcf7-not-valid-tip" id="numero-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap nome">
+                <input type="text" name="bl" value="" id="bl" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="BL">
+                <span role="alert" class="wpcf7-not-valid-tip" id="bl-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="tipo-mercadoria" id="tipo-mercadoria" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Tipo Mercadoria">
+                <span role="alert" class="wpcf7-not-valid-tip" id="tipo-mercadoria-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="qtdade-volume" id="qtdade-volume" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Quantidade Volume">
+                <span role="alert" class="wpcf7-not-valid-tip" id="qtdade-volume-alert"></span>
+            </span>
+        </div>
+        <!-- <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="dthr-carregamento" id='dthr-carregamento' value=""
+                    size="40"
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control"
+                    aria-required="true" aria-invalid="false" placeholder="Data/hora do Carregamento">
+                <span role="alert" class="wpcf7-not-valid-tip" id="dthr-carregamento-alert"></span>
+            </span>
+        </div> -->
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="container" id="container" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Container">
+                <span role="alert" class="wpcf7-not-valid-tip" id="container-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap nome">
+                <select name="tipo-carregamento" class="wpcf7-form-control form-control wpcf7-select wpcf7-validates-as-required wpcf7-not-valid" aria-required="true" aria-invalid="true" aria-describedby="wpcf7-f1206-p1266-o1-ve-tipo-carregamento" id="tipo-carregamento">
+                    <option value="">Tipo de Carregamento</option>
+                    <option value="MANUAL">MANUAL</option>
+                    <option value="MECANIZADO">MECANIZADO</option>
+                    <option value="CROSS DOCKING">CROSS DOCKING</option>
+                    <option value="CONTAINER CHEIO">CONTAINER CHEIO</option>
+                    <option value="DESOVA DIRETA">DESOVA DIRETA</option>
+                </select>
+                <span role="alert" class="wpcf7-not-valid-tip" id="tipo-carregamento-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="ajudante" id="ajudante" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Requer Ajudante">
+                <span role="alert" class="wpcf7-not-valid-tip" id="ajudante-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="transportadora" id="transportadora" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Transportadora">
+                <span role="alert" class="wpcf7-not-valid-tip" id="transportadora-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="tipo-veiculo" id="tipo-veiculo" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Tipo do Veículo">
+                <span role="alert" class="wpcf7-not-valid-tip" id="tipo-veiculo-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="quantidade-veiculos" id="quantidade-veiculos" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Quantidade Veículos">
+                <span role="alert" class="wpcf7-not-valid-tip" id="quantidade-veiculos-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="placas" id="placas" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Placas">
+                <span role="alert" class="wpcf7-not-valid-tip" id="placas-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="dthr-sugerida-carregamento" id="dthr-sugerida-carregamento" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Data e Hora Sugerida para o Carregamento">
+                <span role="alert" class="wpcf7-not-valid-tip" id="dthr-sugerida-carregamento-alert"></span>
+            </span>
+        </div>
+        <!-- <div class="form-group">
+            <span class="wpcf7-form-control-wrap name">
+                <input type="text" name="numero-carga" id='numero-carga' value="" size="40"
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control"
+                    aria-required="true" aria-invalid="false" placeholder="Nº de carga">
+                <span role="alert" class="wpcf7-not-valid-tip" id="numero-carga-alert"></span>
+            </span>
+        </div> -->
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap msg">
+                <textarea name="observacoes" id="observacoes" cols="40" rows="5" class="wpcf7-form-control wpcf7-textarea form-control" aria-invalid="false" placeholder="Observações:"></textarea>
+                <span role="alert" class="wpcf7-not-valid-tip" id="observacoes-alert"></span>
+            </span>
+        </div>
+        <div class="form-group my-3">
+            <span class="wpcf7-form-control-wrap email">
+                <input type="email" name="email" id="emailLR" value="" size="40" multiple="" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Seu e-mail">
+                <span>*Separe os emails com virgula: , </span>
+                <span role="alert" class="wpcf7-not-valid-tip" id="email-alert"></span>
+            </span>
+        </div>
+        <div class="form-group">
+            <span class="wpcf7-form-control-wrap news">
+                <span class="wpcf7-form-control wpcf7-checkbox">
+                    <span class="wpcf7-list-item first last">
+                        <input type="checkbox" name="send_me" value="1">
+                        <span class="wpcf7-list-item-label">Enviar cópia para meu e-mail</span>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <div class="form-group">
+            <h5>CONDIÇÃO PARA A PROGRAMAÇÃO</h5>
+            <p style="text-align: justify">Para os casos de saídas parciais de DI’s e DA’s, distribuição de
+                carga, etiquetagem,
+                conformidade e etc., favor programar o serviço antes do pedido de embarque. Casos excepcionais
+                (consensados com a GDL) deverão ser programados com no mínimo D+1 e deverão ser notificados até
+                as 16h de cada dia (limite para solicitação de mão-de-obra, caso necessário). Se o carregamento
+                for para mais de um veículo transportador e com destinos diferentes, deverá citar os volumes
+                para cada caminhão no campo de observação ou em planilha em anexo. Será gerada uma programação
+                (nº de CARGA) para cada caminhão e esta deverá ser notificada ao transportador para sua
+                apresentação na GDL.
+                O condutor do veículo responsável pelo carregamento deverá se apresentar com 01 hora de
+                antecedência e apresentar a AUTORIZAÇÃO DE ENTRADA DE VEÍCULOS E PESSOAS PARA CARREGAMENTO, caso
+                contrário será impedido de efetuar a coleta. Apenas esta AUTORIZAÇÃO DE CARREGAMENTO não é
+                suficiente para garantir a entrada da transportadora em nosso recinto. </p>
+        </div>
+        <div class="form-group">
+            <input style="margin-right: 10px;" type="submit" value="Enviar" class="wpcf7-form-control has-spinner wpcf7-submit btn btn-primary btn-transp">
+            <input type="button" class="wpcf7-form-control has-spinner wpcf7-submit btn btn-primary btn-transp" value="Limpar" id="btn-reset">
+        </div>
+        <input type="hidden" name="_token" value="2pAYUC1GWX8bqmWEGoJAwUvlIrjrvbGh5rbmOQul">
+    </form>
+</div>

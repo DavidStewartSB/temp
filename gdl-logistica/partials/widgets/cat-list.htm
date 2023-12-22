@@ -1,0 +1,12 @@
+{% set categories = blogCategories.categories %}
+{% set currentCategorySlug = blogCategories.currentCategorySlug %}
+
+<div class="catnoticias" data-aos="fade-up">
+    <h3 class="sidetitulo">Categorias</h3>
+    {% for category in categories %}
+    <p class="btn btn-primary btn-cats">
+        <a  href="/noticias/categoria/{{ category.slug }}" rel="bookmark"> {{ category.name }}</a>
+    </p>
+    {% endfor %}
+    <div class="spaco50"></div>
+</div>

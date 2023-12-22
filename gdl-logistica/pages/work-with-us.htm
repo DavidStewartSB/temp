@@ -1,0 +1,75 @@
+url = "/trabalhe-conosco"
+layout = "default"
+title = "Trabalhe Conosco"
+is_hidden = 0
+
+[resources]
+vars[activeNavLink] = "Trabalhe Conosco"
+
+[staticBreadcrumbs]
+
+[builderList]
+modelClass = "Gdlvagas\Jobs\Models\Job"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "nome"
+noRecordsMessage = "Nenhum registro encontrado"
+detailsPage = "trabalhe-conosco/single-trabalhe-conosco"
+detailsKeyColumn = "nome"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+    {% set displayColumn = builderList.displayColumn %}
+    {% set noRecordsMessage = builderList.noRecordsMessage  %}
+    {% set detailsPage = builderList.detailsPage %}
+    {% set detailsKeyColumn = builderList.detailsKeyColumn %}
+    {% set detailsUrlParameter = builderList.detailsUrlParameter %}
+<header class="principal-nav-interno">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active"
+                style="background-image: url('https://www.gdllogistica.com.br/img/2018/08/topo_contato.jpg')">
+                <a href="#">&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="spaco50"></div>
+<div class="text-center" style="width: 100%;">
+    <h2 class="grande">Vagas</h2>
+</div>
+<div class="spaco50"></div>
+{% if records %}
+
+<div data-aos="zoom-in-up">
+    <h1 class="result_">"<span>Resultados</span>"</h1>
+    <div class="new__card" style="display:flex; flex-wrap:wrap">
+        <div class="" data-aos="zoom-in-up" style="display:flex; flex-wrap:wrap">
+            {% for record in records %}
+            <div class="card job">
+                <img height="300" class="card-img-top" src="{{record.featured_thumb.path}}" alt="">
+                <div class="card-job">
+                    <h5 class="card-job-title"> {{record.nome}}</h5>
+                    <div class="card-job-text card-text">{{record.descricao|raw}}</div>
+                </div>
+                <div class="overlay-jobs">
+                    <p class="text-center">
+                        <a href="/trabalhe-conosco/{{record.id}}">
+                            <img alt="Icone de barco" src="https://www.gdllogistica.com.br/img/plus.png"
+                                class="mx-auto d-block" alt="">
+                        </a>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="text-center" style="width: 100%;">
+    <img width="450" src="https://www.gdllogistica.com.br/img/barco.svg" alt="Icone de barco">
+    <h1>INFELIZMENTE, NÃO TEMOS VAGAS DISPONIVEIS</h1>
+</div>
+{% endif %}
+<div class="spaco100"></div>

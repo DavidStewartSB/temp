@@ -1,5 +1,0 @@
-{% if product_total|length %}
-    <span id="price">{{ product_total|format_money }}</span>
-{% else %}
-    <span id="price">{{ product.price|format_money }}</span>
-{% endif %}
