@@ -1,0 +1,19 @@
+description = "Simple Layout for utility pages"
+title = "Default"
+
+[global settings]
+handle = "Content\Settings"
+==
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% partial 'head' %}
+    </head>
+    <body>
+        {{ settings.body_code|raw }}
+        <main>
+            {% page %}
+        </main>
+    </body>
+    {% partial 'foot' %}
+</html>

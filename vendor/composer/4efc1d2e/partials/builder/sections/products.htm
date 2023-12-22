@@ -1,0 +1,103 @@
+[collection products]
+handle = "Content\Product"
+
+[global settings]
+handle = "Content\Settings"
+==
+{% if settings.enable_shop == true %}
+
+    {% set sort_order = section.reverse_order ? 'desc' : 'asc' %}
+
+    {% if section.show_specific_items %}
+        {% set products = collect() %}
+        {% for product in section.specific_items %}
+            {% if product.item is not empty %}
+                {% do products.push(product.item) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if section.filter_by_category %}
+        {% set products = products.whereRelation('categories', 'id', section.product_category_filter.id) %}
+    {% endif %}
+
+    {% if section.sort_by == 'title' %}
+        {% if section.show_specific_items %}
+            {% if sort_order == 'asc' %}
+                {% set products = products.sortBy('title') %}
+            {% else %}
+                {% set products = products.sortBy('title')|reverse %}
+            {% endif %}
+        {% else %}
+            {% set products = products.orderBy('title', sort_order) %}
+        {% endif %}
+    {% endif %}
+
+    {% if section.sort_by == 'date' %}
+        {% if section.show_specific_items %}
+            {% if sort_order == 'asc' %}
+                {% set products = products.sortBy('published_at_date') %}
+            {% else %}
+                {% set products = products.sortBy('published_at_date')|reverse %}
+            {% endif %}
+        {% else %}
+            {% set products = products.orderBy('published_at_date', sort_order) %}
+        {% endif %}
+    {% endif %}
+
+    {% if section.enable_pagination %}
+        {% set products = products.paginateCustom(section.limit, "products") %}
+    {% else %}
+        {% if not section.show_specific_items %}
+            {% set products = products.limit(section.limit).get() %}
+        {% endif %}
+    {% endif %}
+
+    <{{ section.html_tag == "default" ? "section" : section.html_tag }} 
+            {{ section.html_anchor|length ? 'id="' ~  section.html_anchor  ~ '"' }}
+            class="{% if section.css_classes|length %}
+                        {% for class in section.css_classes|split(',') %}
+                            {{ class ~ ' ' }}
+                        {% endfor %}
+                   {% endif %}
+                   {{ section.style == 'light' ? 'bg-light' }} 
+                   {{ section.style == 'dark' ? 'bg-dark text-white' }} 
+                   {{ section.disable_top_spacing == true ? 'pt-0' : "pt-4" }} 
+                   {{ section.disable_bottom_spacing == true ? 'pb-0' : "pb-4" }}
+                   position-relative"
+    >
+        <div class="{{ section.container_style }}">
+            {% partial 'builder/globals/shop_alerts' %}
+            <div class="row row-cols-lg-{{ section.enable_pagination ? section.limit }}">
+                {% for product in products %}
+                    <div class="col{{ section.show_specific_items ? '-12 col-lg-' ~ section.specific_items_columns : (section.limit > 4 ? "-12 col-lg-3")  }} mb-4">
+                        <a href="{{ 'product'|page({ fullslug: product.slug }) }}" class="d-block text-decoration-none">
+                            <div class="card">
+                                {% if product.images|length %}
+                                    <img
+                                            src="{% for image in product.images|slice(0,1) %}{{ image.path|resize(400, 400, {mode: 'crop'}) }}{% endfor %}"
+                                            alt="{{ product.title }}" class="card-img-top"
+                                    >
+                                {% endif %}
+                                <div class="card-body d-flex justify-content-between">
+                                    <h3 class="text-decoration-none text-dark fs-5">{{ product.title }}</h3>
+                                    <span class="text-decoration-none text-dark fw-bold">{{ product.price|format_money }}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if section.enable_pagination %}
+                <div class="d-flex justify-content-center">
+                    {{ products.links|raw }}
+                </div>
+            {% endif %}
+        </div>
+        {% if section.image|length %}
+            <div class="hero-media position-absolute bg-dark position-absolute top-0 start-0 bottom-0 end-0 w-100" style="z-index: -1">
+                <img class="w-100 h-100 opacity-25" style="object-fit: cover; object-position: center" src="{{ section.image|media|resize(1920) }}" alt="{{ section.image_description }}">
+            </div>
+        {% endif %}
+    </{{ section.html_tag == "default" ? "section" : section.html_tag }}>
+{% endif %}

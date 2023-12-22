@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-{{ section.buttons_position }} my-2 flex-wrap">
+    {% for button in section.buttons %}
+        <a
+                href="{{ button.page|link }}"
+                class="btn btn-{{ button.outline ? 'outline-' ~ button.style : button.style }} {{ not loop.last ? "me-2" }} mb-2"
+                {{ button.external == true ? 'target="_blank"' }}
+        >
+            {{ button.title }}
+        </a>
+    {% endfor %}
+</div>

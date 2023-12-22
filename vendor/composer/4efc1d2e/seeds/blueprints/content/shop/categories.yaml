@@ -1,0 +1,31 @@
+uuid: c59d8718-0115-11ed-98c7-806b464850f0
+handle: Content\Product\Category
+type: structure
+name: Product Categories
+drafts: false
+multisite: sync
+pagefinder: false
+
+navigation:
+  icon: icon-th
+  parent: Content\Product
+  order: 3
+
+customMessages:
+  buttonCreate: New Category
+  
+fields:
+  image:
+    tab: Edit
+    label: Image
+    commentAbove: An image to represent this category.
+    type: mediafinder
+    mode: image
+    maxItems: 1
+    span: left
+  description:
+    tab: Edit
+    label: Description
+    commentAbove: The description of this category.
+    type: textarea
+    span: right

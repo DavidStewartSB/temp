@@ -1,0 +1,24 @@
+uuid: 1a55cbd0-0840-11ed-900b-0e02148bcfbe
+handle: Content\FormColumn
+type: mixin
+name: Form
+fields:
+  column_header:
+    type: mixin
+    label: Column Header
+    source: Content\ColumnHeader
+  form:
+    type: entries
+    label: Form
+    commentAbove: Choose a form you want to display.
+    source: Content\Forms
+    displayMode: recordfinder
+    maxItems: 1
+  column_options:
+    type: mixin
+    source: Content\ColumnOptions
+  advanced_content:
+    type: mixin
+    source: Content\AdvancedFieldsColumn
+    label: Advanced Settings
+    tab: Advanced

@@ -1,0 +1,71 @@
+url = "/sitemap.xml"
+title = "Sitemap"
+
+[collection pages]
+handle = "Content\Page"
+
+[collection events]
+handle = "Content\Event"
+
+[collection products]
+handle = "Content\Product"
+
+[collection posts]
+handle = "Blog\Posts"
+
+[collection authors]
+handle = "Blog\Authors"
+
+[global settings]
+handle = "Content\Settings"
+
+[resources]
+headers[Content-Type] = 'application/xml'
+==
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	{% for page in pages.where('exclude_in_sitemap', false).get() %}
+		<url>
+			{% if (settings.homepage.id == page.id) and (settings.homepage.slug == page.slug) %}
+	    	<loc>{{ '/'|app }}</loc>
+			{% else %}
+			<loc>{{ 'page'|page({fullslug: (page.fullslug|length ? page.fullslug : page.slug) }) }}</loc>
+			{% endif %}
+	    	<lastmod>{{ page.updated_at|date('c') }}</lastmod>
+	    	<changefreq>{{ page.change_frequency|length ? page.change_frequency : '0.8' }}</changefreq>
+	    	<priority>{{ page.priority|length ? page.priority : 'always' }}</priority>
+	    </url>
+	{% endfor %}
+	{% for post in posts.where('exclude_in_sitemap', false).get() %}
+		<url>
+	    	<loc>{{ 'post'|page({slug: post.fullslug}) }}</loc>
+	    	<lastmod>{{ post.updated_at|date('c') }}</lastmod>
+	    	<changefreq>{{ post.change_frequency|length ? post.change_frequency : '0.8' }}</changefreq>
+	    	<priority>{{ post.priority|length ? post.priority : 'always' }}</priority>
+	    </url>
+	{% endfor %}
+	{% for author in authors.where('exclude_in_sitemap', false).get() %}
+		<url>
+	    	<loc>{{ 'author'|page({slug: author.fullslug}) }}</loc>
+	    	<lastmod>{{ author.updated_at|date('c') }}</lastmod>
+	    	<changefreq>{{ author.change_frequency|length ? author.change_frequency : '0.8' }}</changefreq>
+	    	<priority>{{ author.priority|length ? author.priority : 'always' }}</priority>
+	    </url>
+	{% endfor %}
+	{% for event in events.where('exclude_in_sitemap', false).get() %}
+		<url>
+	    	<loc>{{ 'event'|page({fullslug: event.fullslug}) }}</loc>
+	    	<lastmod>{{ event.updated_at|date('c') }}</lastmod>
+	    	<changefreq>{{ event.change_frequency|length ? event.change_frequency : '0.8' }}</changefreq>
+	    	<priority>{{ event.priority|length ? event.priority : 'always' }}</priority>
+	    </url>
+	{% endfor %}
+	{% for product in products.where('exclude_in_sitemap', false).get() %}
+		<url>
+	    	<loc>{{ 'product'|page({fullslug: product.fullslug}) }}</loc>
+	    	<lastmod>{{ product.updated_at|date('c') }}</lastmod>
+	    	<changefreq>{{ product.change_frequency|length ? product.change_frequency : '0.8' }}</changefreq>
+	    	<priority>{{ product.priority|length ? product.priority : 'always' }}</priority>
+	    </url>
+	{% endfor %}
+</urlset>

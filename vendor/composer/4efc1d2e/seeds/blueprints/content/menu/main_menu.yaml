@@ -1,0 +1,26 @@
+uuid: 271c984c-2b0d-498c-a782-6afaf39ee95d
+handle: Content\MainMenu
+type: structure
+name: Main Menu
+drafts: false
+multisite: sync
+pagefinder: false
+
+navigation:
+  icon: icon-list
+  parent: Content\Page
+  order: 5
+
+structure:
+  maxDepth: 2
+
+customMessages:
+  buttonCreate: New Menu Item
+
+fields:
+  menu_selections:
+    type: mixin
+    name: Menu Selections
+    source: Content\MenuSelections
+
+

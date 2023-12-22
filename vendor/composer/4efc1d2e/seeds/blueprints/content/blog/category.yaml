@@ -1,0 +1,34 @@
+uuid: a15e9d9e-ac37-11ed-9edd-c1c4cb64ca59
+type: structure
+handle: Blog\Categories
+name: Post Categories
+drafts: false
+multisite: sync
+pagefinder: false
+
+structure:
+  maxDepth: 1
+
+customMessages:
+  buttonCreate: New Post Category
+
+navigation:
+  parent: Blog\Posts
+  icon: octo-icon-list-ul
+  order: 150
+
+fields:
+  image:
+    tab: Edit
+    label: Image
+    commentAbove: An image to represent this category.
+    type: mediafinder
+    mode: image
+    maxItems: 1
+    span: left
+  description:
+    tab: Edit
+    label: Description
+    commentAbove: The description of this category.
+    type: textarea
+    span: right

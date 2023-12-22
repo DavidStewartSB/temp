@@ -1,0 +1,100 @@
+title = "Laravel Developer"
+url = "/"
+layout = "default"
+==
+
+    <div class="jumbotron text-center andradedev">
+        <div class="container">
+            <h1>Que puedo hacer por ti?</h1>
+            <p>Necesitas ayuda en PHP, Laravel.
+                <br>Buscas tutoriales o codigos de ayuda?.</p>
+            <p>Necesitas un sitio web que impulse los objetivos de su negocio? <strong>Explora mis proyectos..</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Boxes de Acoes -->
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-code"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="title">Proyectos</h3>
+                            <p>
+                                Desarrollos y diseños hechos con pasión.
+                            </p>
+                            <div class="more">
+                                <a href="{{ 'proyectos'|default}}" title="Title Link">
+                                Leer mas <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-heart"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="title">Icons by Font Awesome</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.
+                            </p>
+                            <div class="more">
+                                <a href="#" title="Title Link">
+Read More <i class="fa fa-angle-double-right"></i>
+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="icon">
+                        <div class="image"><i class="fa fa-desktop"></i>
+                        </div>
+                        <div class="info">
+                            <h3 class="title">Desktop Friendly</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.
+                            </p>
+                            <div class="more">
+                                <a href="#" title="Title Link">
+Read More <i class="fa fa-angle-double-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space"></div>
+                </div>
+            </div>
+            <!-- /Boxes de Acoes -->
+        </div>
+
+
+    </div>
+    <!-- /.container -->
+    <hr class="colorgraph">
+
+    <!-- inicio seccion contacto -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 testimonials-title">
+                {% partial 'testimonios' %}
+            </div>
+
+            <div class="col-md-6 contact-form">
+                {% partial 'contactform' %}
+            </div>
+        </div>
+    </div>
+    <!-- fin seccion contacto -->

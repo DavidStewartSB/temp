@@ -1,0 +1,12 @@
+{
+    "name": "artistro08/tailorstartertheme-theme",
+    "type": "october-theme",
+    "description": "A starter theme with partials for menus and head content, and other content. Recommended to be used as a parent theme. ",
+    "require": {
+        "composer/installers": "~1.0",
+        "stripe/stripe-php": "^8.10",
+        "google/recaptcha": "^1.2",
+        "artistro08/tailorstartercompanion-plugin": "^1.0"
+    }
+
+}

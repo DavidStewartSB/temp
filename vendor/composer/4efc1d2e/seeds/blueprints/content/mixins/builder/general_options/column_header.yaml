@@ -1,0 +1,23 @@
+uuid: 081bb446-6813-11ed-86f4-400fe7756560
+handle: Content\ColumnHeader
+type: mixin
+name: Column Header
+
+fields:
+  title:
+    label: Title
+    commentAbove: Title of this column. Used for organizational purposes.
+    type: text
+    tab: General
+  disable_bottom_spacing:
+    type: switch
+    label: Disable Bottom Spacing
+    comment: Remove bottom spacing from this column
+    span: left
+    tab: Style
+  card_styling:
+    type: switch
+    label: Card Styling
+    comment: Add card styling to column
+    span: right
+    tab: Style

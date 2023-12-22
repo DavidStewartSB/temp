@@ -1,0 +1,84 @@
+uuid: 698afed6-70f1-47dd-9dcf-dc2a0f903ff2
+handle: Content\Page
+type: structure
+name: Pages
+drafts: true
+multisite: sync
+pagefinder: item
+
+primaryNavigation:
+  label: Pages & Menus
+  icon: icon-file
+  order: 140
+
+navigation:
+  icon: icon-file
+  parent: Content\Page
+  order: 1
+  
+customMessages:
+  buttonCreate: New Page
+
+groups:
+  simple:
+    name: Simple Page
+    fields:
+      content:
+        label: Content
+        tab: Edit
+        type: richeditor
+        span: adaptive
+      image:
+        tab: Manage
+        label: Image
+        commentAbove: An image to represent this page. Used on the top section of this page.
+        type: mediafinder
+        mode: image
+        maxItems: 1
+        span: full
+      seo_fields:
+        tab: Manage
+        type: mixin
+        name: SEO Fields
+        source: Content\SEOFields
+      code_fields:
+        tab: Manage
+        type: mixin
+        name: SEO Fields
+        source: Content\CodeFields
+  builder:
+    name: Dynamic Page
+    fields:
+      builder:
+        tab: Edit
+        type: mixin
+        name: Builder
+        source: Content\Builder
+      seo_fields:
+        tab: Manage
+        type: mixin
+        name: SEO Fields
+        source: Content\SEOFields
+      code_fields:
+        tab: Manage
+        type: mixin
+        name: SEO Fields
+        source: Content\CodeFields
+  search:
+    name: Search Results Page
+    fields:
+      search:
+        tab: Edit
+        type: mixin
+        name: Search
+        source: Content\SearchFields
+      seo_fields:
+        tab: Manage
+        type: mixin
+        name: SEO Fields
+        source: Content\SEOFields
+      code_fields:
+        tab: Manage
+        type: mixin
+        name: SEO Fields
+        source: Content\CodeFields

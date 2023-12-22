@@ -1,0 +1,22 @@
+uuid: 2dcfff94-63ce-4c7e-a8a9-b032bec5ec8a
+handle: Content\Icon
+type: stream
+name: Icons
+drafts: false
+multisite: sync
+pagefinder: false
+
+primaryNavigation:
+  label: Icons
+  icon: icon-bookmark
+  order: 147
+
+fields:
+  svg_code:
+    type: textarea
+    label: SVG Code
+    size: huge
+    permissions: tailor.entry.2dcfff9463ce4c7ea8a9b032bec5ec8a.create
+    column:
+      type: partial
+      path: "#/artistro08-tailorstartertheme/partials/columns/_icon"

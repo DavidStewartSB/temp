@@ -1,0 +1,26 @@
+uuid: 1084631f-d54d-11ec-9fa3-3b373fee9fc6
+handle: Content\SecondaryMenu
+type: structure
+name: Secondary Menu
+drafts: false
+multisite: sync
+pagefinder: false
+
+
+navigation:
+  icon: icon-list
+  parent: Content\Page
+  order: 6
+
+structure:
+  maxDepth: 2
+  
+customMessages:
+  buttonCreate: New Menu Item
+
+fields:
+  menu_selections:
+    type: mixin
+    name: Menu Selections
+    source: Content\MenuSelections
+

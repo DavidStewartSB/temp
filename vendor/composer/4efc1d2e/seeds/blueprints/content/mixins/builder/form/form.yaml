@@ -1,0 +1,22 @@
+uuid: ed7df322-083f-11ed-a233-11166f9cffdf
+handle: Content\Form
+type: mixin
+name: Form
+fields:
+  section_header:
+    type: mixin
+    source: Content\SectionHeader
+    tab: General
+  form:
+    type: entries
+    label: Form
+    commentAbove: Choose a form you want to display.
+    source: Content\Forms
+    displayMode: recordfinder
+    maxItems: 1
+    tab: General
+  advanced_content:
+    type: mixin
+    source: Content\AdvancedFields
+    label: Advanced Settings
+    tab: Advanced

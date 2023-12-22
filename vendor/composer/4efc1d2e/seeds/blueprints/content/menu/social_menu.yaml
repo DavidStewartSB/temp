@@ -1,0 +1,39 @@
+uuid: 614a6aef-c642-427f-a28c-343032f19deb
+handle: Content\SocialMenu
+type: structure
+name: Social Menu
+drafts: false
+multisite: sync
+pagefinder: false
+
+
+navigation:
+  icon: icon-list
+  parent: Content\Page
+  order: 7
+
+structure:
+  maxDepth: 1
+
+customMessages:
+  buttonCreate: New Menu Item
+
+fields:
+  url:
+    type: Text
+    label: URL
+    span: left
+    validation: url
+    commentAbove: Social profile you would like to link to.
+  icon:
+    label: Icon
+    type: entries
+    maxItems: 1
+    displayMode: recordfinder
+    span: right
+    source: Content\Icon
+    commentAbove: The icon related to the social media service.
+    scope: false
+    column: false
+        
+

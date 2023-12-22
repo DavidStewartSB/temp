@@ -1,0 +1,48 @@
+uuid: cbe97761-6810-11ed-a1b7-7575a4dff238
+handle: Content\SectionHeader
+type: mixin
+name: Section Header
+
+fields:
+  title:
+    label: Title
+    type: text
+    span: full
+    commentAbove: Title of this section. Title of the section. Used for organizational purposes.
+    tab: General
+  image:
+    label: Image
+    type: mediafinder
+    commentAbove: Background image to the section.
+    span: left
+    mode: image
+    maxItems: 1
+    tab: Background Image
+  image_description:
+    label: Image Description
+    type: text
+    commentAbove: The Description of the image. Use for SEO purposes.
+    span: right
+    tab: Background Image
+  style:
+    label: Style
+    type: dropdown
+    span: full
+    commentAbove: Style of the background
+    tab: Style
+    options:
+      none: None
+      light: Light
+      dark: Dark
+  disable_top_spacing:
+    type: switch
+    label: Disable Top Spacing
+    comment: Remove top spacing from this section
+    span: left
+    tab: Style
+  disable_bottom_spacing:
+    type: switch
+    label: Disable Bottom Spacing
+    comment: Remove bottom spacing from this section
+    span: right
+    tab: Style

@@ -1,0 +1,103 @@
+[global settings]
+handle = "Content\Settings"
+==
+<{{ section.html_tag == "default" ? "section" : section.html_tag }} 
+        {{ section.html_anchor|length ? 'id=' ~  section.html_anchor  ~ '' }}
+        class="{% if section.css_classes|length %}
+                    {% for class in section.css_classes|split(',') %}
+                        {{ class ~ ' ' }}
+                    {% endfor %}
+               {% endif %}
+               {{ section.style == 'light' ? 'bg-light' }} 
+               {{ section.style == 'dark' ? 'bg-dark text-white' }} 
+               {{ section.disable_top_spacing == true ? 'pt-0' : "pt-4" }} 
+               {{ section.disable_bottom_spacing == true ? 'pb-0' : "pb-4" }}
+               position-relative"
+>
+    <div class="{{ section.container_style }}">
+        <div class="row row-cols-lg-{{ section.columns|length }} row-cols-1 mx-auto {{ section.reverse_columns_on_mobile ? 'flex-lg-row flex-column-reverse' }}">
+            {% for column in section.columns %}
+                <div 
+                    {{ column.html_anchor|length ? 'id=' ~  column.html_anchor  ~ '' }}
+                    class="col 
+                    {% if column.css_classes|length %}
+                        {% for class in column.css_classes|split(',') %}
+                            {{ class ~ ' ' }}
+                        {% endfor %}
+                    {% endif %}
+                    {{ column.disable_bottom_spacing == true ? 'mb-0' : 'mb-5' }} 
+                    {{ column.position }} {{ column.width|length ? "col-lg-" ~ column.width : '12' }}
+                    "
+                >
+                
+                    {% if column.card_styling %}
+                        <div class="card"><div class="card-body">
+                    {% endif %}
+                    
+                    {# Content Column Group #}
+                    {% if column.content_group == "content" %}
+                        {% partial 'builder/columns/content' column = column %}
+                    {% endif %}
+                    
+                    {# Button Column Group #}
+                    {% if column.content_group == "buttons" %}
+                        {% partial 'builder/columns/buttons' column = column %}
+                    {% endif %}
+                    
+                    {# Image Column Group #}
+                    {% if column.content_group == "image" %}
+                        {% partial 'builder/columns/image' column = column %}
+                    {% endif %}
+
+                    {# Posts Column Group #}
+                    {% if settings.enable_blog == true %}
+                        {% if column.content_group == "posts" %}
+                            {% partial 'builder/columns/posts' column = column %}
+                        {% endif %}
+                    {% endif %}
+                    
+                    {# Event Column Group #}
+                    {% if settings.enable_events == true %}
+                        {% if column.content_group == "events" %}
+                            {% partial 'builder/columns/events' column = column %}
+                        {% endif %}
+                    {% endif %}
+                    
+                    {# Form Column Group #}
+                    {% if column.content_group == "faqs" %}
+                        {% partial 'builder/columns/faqs' column = column %}
+                    {% endif %}
+                    
+                    {# Shop Column Group #}
+                    {% if settings.enable_shop == true %}
+                        {% if column.content_group == "products" %}
+                            {% partial 'builder/columns/products' column = column %}
+                        {% endif %}
+                    {% endif %}
+
+                    {# Form Column Group #}
+                    {% if column.content_group == "form" %}
+                        {% partial 'builder/columns/form' column = column %}
+                    {% endif %}
+                    
+                    {# Search Column Group #}
+                    {% if settings.enable_search == true %}
+                        {% if column.content_group == "search" %}
+                            {% partial 'builder/columns/search' column = column %}
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if column.card_styling %}
+                        </div> </div>
+                    {% endif %}
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if section.image|length %}
+        <div class="hero-media position-absolute bg-dark position-absolute top-0 start-0 bottom-0 end-0 w-100" style="z-index: -1">
+            <img class="w-100 h-100 opacity-25" style="object-fit: cover; object-position: center" src="{{ section.image|media|resize(1920) }}" alt="{{ section.image_description }}">
+        </div>
+    {% endif %}
+</{{ section.html_tag == "default" ? "section" : section.html_tag }}>

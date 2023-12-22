@@ -1,0 +1,17 @@
+uuid: 31368e54-ad35-11ed-94ce-b34c17990af5
+handle: Content\SearchColumn
+type: mixin
+name: Search
+fields:
+  column_header:
+    type: mixin
+    label: Column Header
+    source: Content\ColumnHeader
+    tab: General
+  common_fields:
+    type: mixin
+    source: Content\SearchCommonFields
+    tab: General
+  column_options:
+    type: mixin
+    source: Content\ColumnOptions

@@ -1,0 +1,17 @@
+uuid: 9802e96c-6804-11ed-ac29-da4e53baa622
+handle: Content\MenuSelections
+type: mixin
+name: Menu Selections
+
+fields:
+  page:
+    type: pagefinder
+    label: Page
+    singleMode: true
+    scope: false
+  external:
+    label: External link
+    type: switch
+    default: unchecked
+    column: false
+    scope: false

@@ -1,0 +1,89 @@
+description = "Default"
+==
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jorge Andrade ">
+    <link rel="icon" href="assets/favicon.ico">
+
+    <title>Jorge Andrade | {{ this.page.title }}</title>
+
+    <link href="{{ [
+            'assets/css/bootstrap.min.css',
+            'assets/css/andradedev.css',
+        ]|theme }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900|Open+Sans|Roboto">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-andradedev navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand andradedev-nav" href="{{ '/'|default}}">
+                    <img src="https://s.gravatar.com/avatar/071f45a824f9a6d3bfdc79a97e531383?s=100" alt="Jorge Andrade Gravatar" class="img-circle">
+                    <span class="brand">Jorge Andrade</span>
+                </a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav andradedev-nav navbar-right">
+                    <li class="{% if this.page.url == '/about' %}active{% endif %}"><a href="{{ 'about'|default}}">Quien Soy</a>
+                    </li>
+                    <li class="{% if this.page.url == '/proyectos' %}active{% endif %}"><a href="{{ 'proyectos'|default}}">Proyectos</a>
+                    </li>
+                    <li class="{% if this.page.url == '/blog' %}active{% endif %}"><a href="{{ 'blog'|default}}">Blog</a>
+                    </li>
+                    <li class="{% if this.page.url == '/contacto' %}active{% endif %}"><a href="{{ 'contacto'|default}}">Contratame</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- init page -->
+    {% page %}
+    <!-- fin page -->
+
+    <!-- Footer -->
+    {% partial "footer" %}
+
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+        <script src="{{ [
+            'assets/js/jquery.min.js',
+            'assets/js/bootstrap.min.js'
+        ]|theme }}"></script>
+
+    <script>
+        // When the DOM is ready, run this function
+        $(document).ready(function () {
+            //Set the carousel options
+            $('#quote-carousel').carousel({
+                pause: true,
+                interval: 4000,
+            });
+        });
+    </script>
+
+    {% scripts %}
+
+</body>
+
+</html>

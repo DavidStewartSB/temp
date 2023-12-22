@@ -1,0 +1,189 @@
+uuid: 1be4d611-a49d-11ed-9116-3a678152e91c
+handle: Content\Section
+type: mixin
+name: Section
+fields:
+  section_header:
+    type: mixin
+    source: Content\SectionHeader
+  reverse_columns_on_mobile:
+    label: Reverse Columns on Mobile
+    comment: Useful if you have content that needs to be stacked a different way on a phone.
+    type: switch
+    tab: Style
+  columns:
+    label: Content
+    type: repeater
+    commentAbove: Create content for this section. Each content block uses it's own column. Max of 4 per section.
+    span: full
+    displayMode: builder
+    tab: General
+    groups:
+      content:
+        name: Content
+        icon: icon-align-left
+        description: Add content to your section. Has buttons as well.
+        titleFrom: title
+        useTabs: true
+        fields:
+          column_header:
+            type: mixin
+            label: Column Header
+            source: Content\ColumnHeader
+          content:
+            label: Content
+            type: richeditor
+            tab: General
+          hr_1:
+            type: ruler
+            tab: General
+          buttons:
+            type: mixin
+            source: Content\Buttons
+            commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+            tab: General
+          column_options:
+            type: mixin
+            source: Content\ColumnOptions
+          advanced_content:
+            type: mixin
+            source: Content\AdvancedFieldsColumn
+            label: Advanced Settings
+            tab: Advanced
+      buttons:
+        name: Buttons
+        icon: icon-link
+        titleFrom: title
+        description: Add buttons to your section.
+        useTabs: true
+        fields:
+          column_header:
+            type: mixin
+            label: Column Header
+            source: Content\ColumnHeader
+          buttons:
+            type: mixin
+            source: Content\Buttons
+            commentAbove: Display links in your content as buttons. Use a Page or specify a link. Max of 3 per content block.
+            tab: General
+          column_options:
+            type: mixin
+            source: Content\ColumnOptions
+          advanced_content:
+            type: mixin
+            source: Content\AdvancedFieldsColumn
+            label: Advanced Settings
+            tab: Advanced
+      image:
+        name: Image
+        icon: icon-image
+        description: Add an image to your section.
+        titleFrom: title
+        useTabs: true
+        fields:
+          column_header:
+            type: mixin
+            label: Column Header
+            source: Content\ColumnHeader
+          image:
+            label: Image
+            type: mediafinder
+            commentAbove: Pick an image for this column.
+            span: left
+            mode: image
+            maxItems: 1
+            tab: General
+          image_description:
+            label: Image Description
+            type: text
+            commentAbove: The Description of the image. Use for SEO purposes.
+            span: right
+            tab: General
+          image_link:
+            label: Image Link
+            type: pagefinder
+            commentAbove: Add a link for this image. Leave empty for no link.
+            span: full
+            tab: General
+            singleMode: true
+          external_link:
+            label: External link
+            comment: Open in new tab
+            type: switch
+            default: unchecked
+            tab: General
+            span: full
+          column_options:
+            type: mixin
+            source: Content\ColumnOptions
+          advanced_content:
+            type: mixin
+            source: Content\AdvancedFieldsColumn
+            label: Advanced Settings
+            tab: Advanced
+      posts:
+        name: Posts
+        icon: icon-newspaper-o
+        description: Column with blog posts.
+        titleFrom: title
+        useTabs: true
+        fields:
+          posts:
+            type: mixin
+            source: Content\PostsColum
+      events:
+        name: Events
+        icon: icon-calendar
+        description: Column with events.
+        titleFrom: title
+        useTabs: true
+        fields:
+          events:
+            type: mixin
+            source: Content\EventsColumn
+      products:
+        name: Products
+        icon: icon-cube
+        description: Column with products.
+        titleFrom: title
+        useTabs: true
+        fields:
+          products:
+            type: mixin
+            source: Content\ProductsColumn
+      faqs:
+        name: FAQs
+        icon: icon-question-circle-o
+        description: Column with Frequently Asked Questions
+        titleFrom: title
+        useTabs: true
+        fields:
+          search:
+            type: mixin
+            source: Content\FAQsColumn
+      form:
+        name: Form
+        icon: icon-list-alt
+        description: Section with a form.
+        titleFrom: title
+        useTabs: true
+        fields:
+          form:
+            type: mixin
+            source: Content\FormColumn
+            tab: General
+      search:
+        name: Search
+        icon: icon-search
+        description: Section with a search field.
+        titleFrom: title
+        useTabs: true
+        fields:
+          search:
+            type: mixin
+            source: Content\SearchColumn
+  advanced_content:
+    type: mixin
+    source: Content\AdvancedFields
+    label: Advanced Settings
+    tab: Advanced

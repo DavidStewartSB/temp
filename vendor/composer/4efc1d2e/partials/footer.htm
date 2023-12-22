@@ -1,0 +1,71 @@
+[collection secondaryMenu]
+handle = "Content\SecondaryMenu"
+
+[collection socialMenu]
+handle = "Content\SocialMenu"
+
+[global settings]
+handle = "Content\Settings"
+==
+<footer class="
+{% if settings.footer_css_classes|length %}
+    {% for class in settings.footer_css_classes|split(',') %}
+        {{ class ~ ' ' }}
+    {% endfor %}
+{% endif %}
+" {{ settings.footer_html_anchor|length ? 'id=' ~  settings.footer_html_anchor  ~ '' }}>
+    <div class="{{ settings.footer_container_style }}">
+        <div class="row">
+            <div class="col-12 col-lg-8 mx-auto">
+                <hr>
+            </div>
+            <div class="col-12 mx-auto">
+                <ul class="nav justify-content-center flex-column flex-lg-row align-items-start">
+                    {% for item in secondaryMenu %}
+                        <li class="nav-item">
+                            {% if not item.parent_id|length %}
+                                {% if item.children|length %}
+                                    <h5 class="mb-0"><a class="nav-link" {{ item.external ? 'target="_blank" '}} href="{{ item.page|link }}">{{ item.title }}</a></h5>
+                                {% else %}
+                                    <a class="nav-link" {{ item.external ? 'target="_blank" '}} href="{{ item.page|link }}">{{ item.title }}</a>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.children %}
+                                <ul class="nav flex-column">
+                                    {% for item in item.children %}
+                                        <li class="nav-item">
+                                            <a
+                                                class="nav-link
+                                                {{ link(item.page).isActive ? 'active' }}
+                                                {% if this.page.id == "index" %}
+                                                    {{ settings.homepage.fullslug in item.page|link ? 'active' }}
+                                                {% endif %}
+                                                "
+                                                href="{{ item.page|link }}"
+                                                {{ item.external ? 'target="_blank" '}}
+                                            >
+                                                {{ item.title }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <ul class="nav justify-content-center flex-lg-row align-items-center">
+                    {% for item in socialMenu %}
+                        {% if item.is_enabled %}
+                            <li class="nav-item">
+                                <a class="nav-link fs-4" target="_blank" href="{{ item.url }}" title="{{ item.title }}">{{ item.icon|length ? item.icon.svg_code|raw : item.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <p class="small text-center my-4">
+                Copyright © {{ 'now'|date('Y') }} {{ settings.website_name }}. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>

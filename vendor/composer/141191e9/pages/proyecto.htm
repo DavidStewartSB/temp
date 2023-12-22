@@ -1,0 +1,46 @@
+title = "Proyecto"
+url = "/proyecto:slug"
+layout = "default"
+==
+
+<!--    init proyectos-->
+    <div class="container">
+        <div class="row">
+            <!-- init proyecto-->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
+                        <span class="card-title">Material Cards</span>
+                        <span class="card-meta">Published at</span>
+                    </div>
+
+                    <div class="card-content">
+                        <p>Cards for display in portfolio style material design by Google.</p>
+                        <hr class="colorgraph">
+                    </div>
+
+                    <div class="card-action">
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                        <a href="#" target="new_blank">Link</a>
+                    </div>
+                </div>
+
+                {% partial 'comentarios' %}
+
+            </div>
+            <!-- fin proyecto-->
+
+            <!-- init sidebar-->
+            <div class="col-md-4">
+               {% partial 'suscribete' %}
+
+
+            </div>
+           <!-- fin sidebar-->
+        </div>
+    </div>
+    <!--    end proyectos-->

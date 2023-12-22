@@ -1,0 +1,1040 @@
+uuid: 533c314d-6e80-430c-b278-272cbc6632cf
+handle: Content\Settings
+type: global
+name: Settings
+multisite: sync
+description: Adjust the default settings of the site.
+
+
+navigation:
+  icon: icon-cog
+  order: 24
+
+fields:
+  homepage:
+    maxItems: 1
+    label: Home Page
+    tab: Settings
+    type: entries
+    source: Content\Page
+    span: row
+    spanClass: col-12 col-lg-6
+    commentAbove: The default homepage
+    displayMode: recordfinder
+    conditions: content_group != 'search'
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+  website_name:
+    label: Website Name
+    tab: Settings
+    span: row
+    spanClass: col-12 col-lg-6
+    commentAbove: The name of the website. Used in the footer and in the header if no logo is set
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+  favicon:
+    type: mediafinder
+    mode: image
+    label: Favicon
+    commentAbove: The icon that appears in the browser tab or window
+    tab: Settings
+    maxItems: 1
+    span: row
+    spanClass: col-12 col-lg-4
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+  favicon_dark:
+    type: mediafinder
+    mode: image
+    label: Dark Favicon
+    commentAbove: The icon that appears in the browser tab or window in dark mode
+    tab: Settings
+    maxItems: 1
+    span: row
+    spanClass: col-12 col-lg-4
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+  logo:
+    type: mediafinder
+    mode: image
+    label: Logo
+    commentAbove: The Logo. Appears in the navigation
+    tab: Settings
+    maxItems: 1
+    span: row
+    spanClass: col-12 col-lg-4
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+  hr_1:
+    type: ruler
+    tab: Settings
+  enable_shop:
+    type: switch
+    comment: Enable the shop on the site.
+    label: Enable Shop
+    default: false
+    tab: Settings
+    span: left
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+  enable_events:
+    type: switch
+    comment: Enable events on the site.
+    label: Enable Events
+    default: false
+    tab: Settings
+    span: right
+    permissions: tailor.entry.817ac186fc5d11ec86016e37945c2034
+  enable_blog:
+    type: switch
+    comment: Enable blog posts on the site.
+    label: Enable Blog
+    default: false
+    tab: Settings
+    span: left
+    permissions: tailor.entry.a113a242ac3711ed82e2cdd679785a5c
+  enable_search:
+    type: switch
+    comment: Enable Search throughout the site
+    label: Enable Search
+    default: false
+    tab: Settings
+    span: right
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+  default_search_page:
+    maxItems: 1
+    label: Default Search Page
+    tab: Search
+    type: entries
+    source: Content\Page
+    commentAbove: The default search page. Used if no page is set in a search block.
+    displayMode: recordfinder
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+    validation: 
+      - required_if:enable_search,1
+    conditions: content_group = 'search'
+    trigger:
+      action: show
+      field: enable_search
+      condition: checked
+  enable_global_search:
+    type: switch
+    comment: Enable Global Search in the navbar
+    label: Enable Global Search
+    default: false
+    tab: Search
+    span: full
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+    trigger:
+      action: show
+      field: enable_search
+      condition: checked
+  entries_to_search:
+    label: Global Items to Search
+    commentAbove: What content should be searchable?
+    type: checkboxlist
+    tab: Search
+    quickselect: true
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+    options: 
+      pages: Pages
+      posts: Blog Posts
+      events: Events
+      products: Products
+    trigger:
+      action: show
+      field: enable_search
+      condition: checked
+  search_field_placeholder:
+    type: text
+    label: Search Field Placeholder
+    tab: Search
+    commentAbove: The text that is inside the field before the user starts typing
+    span: full
+    default: Search this site...
+    permissions: tailor.entry.698afed670f147dd9dcfdc2a0f903ff2
+    trigger:
+      action: show
+      field: enable_search
+      condition: checked
+  navbar_section_header:
+    label: Navbar
+    comment: Configure options for the global navigation
+    type: section
+    tab: Global Elements
+  navbar_position:
+    type: dropdown
+    commentAbove: Choose how the navbar is placed throughout the site
+    label: Navbar Position
+    tab: Global Elements
+    options:
+      position-relative: Scroll With Content
+      sticky-top: Stick to Top of Screen
+  navbar_advanced_options:
+    type: switch
+    label: Show Advanced Settings
+    comment: Configure advanced settings for the navbar
+    tab: Global Elements
+  navbar_css_classes:
+    type: taglist
+    label: CSS Classes
+    commentAbove: Specify CSS classes for the navbar. Separate them with a comma.
+    span: full
+    tab: Global Elements
+    trigger: 
+      action: empty|hide
+      field: navbar_advanced_options
+      condition: unchecked
+  navbar_html_anchor:
+    type: text
+    label: ID/Anchor
+    commentAbove: Specify a unique ID for the navbar.
+    commentHtml: true
+    validation: alpha_dash
+    span: full
+    tab: Global Elements
+    trigger: 
+      action: empty|hide
+      field: navbar_advanced_options
+      condition: unchecked
+  navbar_container_style:
+    type: dropdown
+    label: Container Style
+    commentAbove: Choose the navbar container style. Pick "Fluid" for full width.
+    tab: Global Elements
+    span: full
+    options: 
+      container: Normal
+      container-fluid: Fluid
+    trigger: 
+      action: empty|hide|fill[container]
+      field: navbar_advanced_options
+      condition: unchecked
+  hr_2:
+    type: ruler
+    tab: Global Elements
+  footer_section_header:
+    label: Footer
+    comment: Configure options for the global footer
+    type: section
+    tab: Global Elements
+  footer_advanced_options:
+    type: switch
+    label: Show Advanced Settings
+    comment: Configure advanced settings for the footer
+    tab: Global Elements
+  footer_css_classes:
+    type: taglist
+    label: CSS Classes
+    commentAbove: Specify CSS classes for the footer. Separate them with a comma.
+    span: full
+    tab: Global Elements
+    trigger: 
+      action: empty|hide
+      field: footer_advanced_options
+      condition: unchecked
+  footer_html_anchor:
+    type: text
+    label: ID/Anchor
+    commentAbove: Specify a unique ID for the footer.
+    commentHtml: true
+    validation: alpha_dash
+    span: full
+    tab: Global Elements
+    trigger: 
+      action: empty|hide
+      field: footer_advanced_options
+      condition: unchecked
+  footer_container_style:
+    type: dropdown
+    label: Container Style
+    commentAbove: Choose the footer container style. Pick "Fluid" for full width.
+    tab: Global Elements
+    span: full
+    options: 
+      container: Normal
+      container-fluid: Fluid
+    trigger: 
+      action: empty|hide|fill[container]
+      field: footer_advanced_options
+      condition: unchecked
+  
+  header_code:
+    label: Header Code
+    type: codeeditor
+    language: html
+    commentAbove: Insert code inside the <code>&lt;head&gt;</code> on every page. Useful if you have some tracking code that needs to be entered.
+    commentHtml: true
+    tab: Global Code
+    span: row
+    spanClass: col-12 col-lg-4
+  body_code:
+    label: Body Code
+    type: codeeditor
+    language: html
+    commentAbove: Insert code right after the opening <code>&lt;body&gt;</code> tag on every page. Useful if you have some tracking code that needs to be entered.
+    commentHtml: true
+    tab: Global Code
+    span: row
+    spanClass: col-12 col-lg-4
+  footer_code:
+    label: Footer Code
+    type: codeeditor
+    language: html
+    commentAbove: Insert code right before the closing <code>&lt;/body&gt;</code> tag on every page. Useful if you have some tracking code that needs to be entered.
+    commentHtml: true
+    tab: Global Code
+    span: row
+    spanClass: col-12 col-lg-4
+  currency:
+    type: dropdown
+    label: Currency
+    commentAbove: Pick your currency code. Used in Stripe Checkout
+    default: USD
+    tab: Currency
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    options:
+      AFN: AFN
+      EUR: EUR
+      ALL: ALL
+      DZD: DZD
+      USD: USD
+      AOA: AOA
+      XCD: XCD
+      ARS: ARS
+      AMD: AMD
+      AWG: AWG
+      AUD: AUD
+      AZN: AZN
+      BSD: BSD
+      BHD: BHD
+      BDT: BDT
+      BBD: BBD
+      BYN: BYN
+      BZD: BZD
+      XOF: XOF
+      BMD: BMD
+      INR: INR
+      BTN: BTN
+      BOB: BOB
+      BOV: BOV
+      BAM: BAM
+      BWP: BWP
+      NOK: NOK
+      BRL: BRL
+      BND: BND
+      BGN: BGN
+      BIF: BIF
+      CVE: CVE
+      KHR: KHR
+      XAF: XAF
+      CAD: CAD
+      KYD: KYD
+      CLP: CLP
+      CLF: CLF
+      CNY: CNY
+      COP: COP
+      COU: COU
+      KMF: KMF
+      CDF: CDF
+      NZD: NZD
+      CRC: CRC
+      HRK: HRK
+      CUP: CUP
+      CUC: CUC
+      ANG: ANG
+      CZK: CZK
+      DKK: DKK
+      DJF: DJF
+      DOP: DOP
+      EGP: EGP
+      SVC: SVC
+      ERN: ERN
+      SZL: SZL
+      ETB: ETB
+      FKP: FKP
+      FJD: FJD
+      XPF: XPF
+      GMD: GMD
+      GEL: GEL
+      GHS: GHS
+      GIP: GIP
+      GTQ: GTQ
+      GBP: GBP
+      GNF: GNF
+      GYD: GYD
+      HTG: HTG
+      HNL: HNL
+      HKD: HKD
+      HUF: HUF
+      ISK: ISK
+      IDR: IDR
+      XDR: XDR
+      IRR: IRR
+      IQD: IQD
+      ILS: ILS
+      JMD: JMD
+      JPY: JPY
+      JOD: JOD
+      KZT: KZT
+      KES: KES
+      KPW: KPW
+      KRW: KRW
+      KWD: KWD
+      KGS: KGS
+      LAK: LAK
+      LBP: LBP
+      LSL: LSL
+      ZAR: ZAR
+      LRD: LRD
+      LYD: LYD
+      CHF: CHF
+      MOP: MOP
+      MKD: MKD
+      MGA: MGA
+      MWK: MWK
+      MYR: MYR
+      MVR: MVR
+      MRU: MRU
+      MUR: MUR
+      XUA: XUA
+      MXN: MXN
+      MXV: MXV
+      MDL: MDL
+      MNT: MNT
+      MAD: MAD
+      MZN: MZN
+      MMK: MMK
+      NAD: NAD
+      NPR: NPR
+      NIO: NIO
+      NGN: NGN
+      OMR: OMR
+      PKR: PKR
+      PAB: PAB
+      PGK: PGK
+      PYG: PYG
+      PEN: PEN
+      PHP: PHP
+      PLN: PLN
+      QAR: QAR
+      RON: RON
+      RUB: RUB
+      RWF: RWF
+      SHP: SHP
+      WST: WST
+      STN: STN
+      SAR: SAR
+      RSD: RSD
+      SCR: SCR
+      SLL: SLL
+      SGD: SGD
+      XSU: XSU
+      SBD: SBD
+      SOS: SOS
+      SSP: SSP
+      LKR: LKR
+      SDG: SDG
+      SRD: SRD
+      SEK: SEK
+      CHE: CHE
+      CHW: CHW
+      SYP: SYP
+      TWD: TWD
+      TJS: TJS
+      TZS: TZS
+      THB: THB
+      TOP: TOP
+      TTD: TTD
+      TND: TND
+      TRY: TRY
+      TMT: TMT
+      UGX: UGX
+      UAH: UAH
+      AED: AED
+      USN: USN
+      UYU: UYU
+      UYI: UYI
+      UYW: UYW
+      UZS: UZS
+      VUV: VUV
+      VES: VES
+      VND: VND
+      YER: YER
+      ZMW: ZMW
+      ZWL: ZWL
+      XBA: XBA
+      XBB: XBB
+      XBC: XBC
+      XBD: XBD
+      XTS: XTS
+      XXX: XXX
+      XAU: XAU
+      XPD: XPD
+      XPT: XPT
+      XAG: XAG
+      AFA: AFA
+      FIM: FIM
+      ALK: ALK
+      ADP: ADP
+      ESP: ESP
+      FRF: FRF
+      AOK: AOK
+      AON: AON
+      AOR: AOR
+      ARA: ARA
+      ARP: ARP
+      ARY: ARY
+      RUR: RUR
+      ATS: ATS
+      AYM: AYM
+      AZM: AZM
+      BYB: BYB
+      BYR: BYR
+      BEC: BEC
+      BEF: BEF
+      BEL: BEL
+      BOP: BOP
+      BAD: BAD
+      BRB: BRB
+      BRC: BRC
+      BRE: BRE
+      BRN: BRN
+      BRR: BRR
+      BGJ: BGJ
+      BGK: BGK
+      BGL: BGL
+      BUK: BUK
+      HRD: HRD
+      CYP: CYP
+      CSJ: CSJ
+      CSK: CSK
+      ECS: ECS
+      ECV: ECV
+      GQE: GQE
+      EEK: EEK
+      XEU: XEU
+      GEK: GEK
+      DDM: DDM
+      DEM: DEM
+      GHC: GHC
+      GHP: GHP
+      GRD: GRD
+      GNE: GNE
+      GNS: GNS
+      GWE: GWE
+      GWP: GWP
+      ITL: ITL
+      ISJ: ISJ
+      IEP: IEP
+      ILP: ILP
+      ILR: ILR
+      LAJ: LAJ
+      LVL: LVL
+      LVR: LVR
+      LSM: LSM
+      ZAL: ZAL
+      LTL: LTL
+      LTT: LTT
+      LUC: LUC
+      LUF: LUF
+      LUL: LUL
+      MGF: MGF
+      MVQ: MVQ
+      MLF: MLF
+      MTL: MTL
+      MTP: MTP
+      MRO: MRO
+      MXP: MXP
+      MZE: MZE
+      MZM: MZM
+      NLG: NLG
+      NIC: NIC
+      PEH: PEH
+      PEI: PEI
+      PES: PES
+      PLZ: PLZ
+      PTE: PTE
+      ROK: ROK
+      ROL: ROL
+      STD: STD
+      CSD: CSD
+      SKK: SKK
+      SIT: SIT
+      RHD: RHD
+      ESA: ESA
+      ESB: ESB
+      SDD: SDD
+      SDP: SDP
+      SRG: SRG
+      CHC: CHC
+      TJR: TJR
+      TPE: TPE
+      TRL: TRL
+      TMM: TMM
+      UGS: UGS
+      UGW: UGW
+      UAK: UAK
+      SUR: SUR
+      USS: USS
+      UYN: UYN
+      UYP: UYP
+      VEB: VEB
+      VEF: VEF
+      VNC: VNC
+      YDD: YDD
+      YUD: YUD
+      YUM: YUM
+      YUN: YUN
+      ZRN: ZRN
+      ZRZ: ZRZ
+      ZMK: ZMK
+      ZWC: ZWC
+      ZWD: ZWD
+      ZWN: ZWN
+      ZWR: ZWR
+      XFO: XFO
+      XRE: XRE
+      XFU: XFU
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  currency_symbol:
+    label: Currency Symbol
+    commentAbove: Currency symbol to display alongside the price.
+    type: text
+    default: $
+    tab: Currency
+    required: true
+    span: left
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  currency_symbol_placement:
+    label: Currency Symbol Placement
+    commentAbove: Choose where to place the currency symbol.
+    type: dropdown
+    default: value[before]
+    tab: Currency
+    span: right
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+    options:
+      before: Before Price
+      after: After Price
+  section:
+    type: section
+    label: Stripe Keys
+    tab: Stripe
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  stripe_public_key:
+    label: Stripe Public Key
+    tab: Stripe
+    type: sensitive
+    span: left
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    validation:
+      - required_with:stripe_secret_key
+      - required_with:stripe_webhook_secret_key
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  stripe_secret_key:
+    label: Stripe Secret Key
+    tab: Stripe
+    span: right
+    type: sensitive
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    validation:
+      - required_with:stripe_public_key
+      - required_with:stripe_webhook_secret_key
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  stripe_webhook_secret_key:
+    label: Stripe Webhook Secret Key
+    tab: Stripe
+    span: left
+    type: sensitive
+    comment: The webhook secret to sign requests. The shop will not work without it. For step-by-step instructions on how to get it, <a href='https://scribehow.com/shared/Obtain_a_Stripe_Webhook_Secret__5lTS37MMRnu_hhGzWJe07w' target='_blank'>click here</a>.
+    commentHtml: true
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    validation:
+      - required_with:stripe_public_key
+      - required_with:stripe_secret_key
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  stripe_checkout_success_page:
+    label: Stripe Checkout Success Page
+    tab: Stripe
+    comment: The page to redirect to upon success.
+    span: right
+    type: entries
+    source: Content\Page
+    displayMode: recordfinder
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    maxItems: 1
+    validation:
+      - required_with:stripe_public_key
+      - required_with:stripe_secret_key
+      - required_with:stripe_webhook_secret_key
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+  available_countries:
+    label: Countries to ship to
+    commentAbove: A list of country codes you would like to ship to. (Ex. US for United States, CA for Canada, etc.) <a href="https://countrycode.org/" target="_blank">Find a country code</a>
+    type: taglist
+    mode: array
+    separator: comma
+    tab: Shipping
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    commentHtml: true
+    customTags: false
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+    options:
+      - AF
+      - AX
+      - AL
+      - DZ
+      - AS
+      - AD
+      - AO
+      - AI
+      - AQ
+      - AG
+      - AR
+      - AM
+      - AW
+      - AU
+      - AT
+      - AZ
+      - BS
+      - BH
+      - BD
+      - BB
+      - BY
+      - BE
+      - BZ
+      - BJ
+      - BM
+      - BT
+      - BO
+      - BA
+      - BW
+      - BV
+      - BR
+      - IO
+      - BN
+      - BG
+      - BF
+      - BI
+      - KH
+      - CM
+      - CA
+      - CV
+      - KY
+      - CF
+      - TD
+      - CL
+      - CN
+      - CX
+      - CC
+      - CO
+      - KM
+      - CG
+      - CD
+      - CK
+      - CR
+      - CI
+      - HR
+      - CU
+      - CY
+      - CZ
+      - DK
+      - DJ
+      - DM
+      - DO
+      - EC
+      - EG
+      - SV
+      - GQ
+      - ER
+      - EE
+      - ET
+      - FK
+      - FO
+      - FJ
+      - FI
+      - FR
+      - GF
+      - PF
+      - TF
+      - GA
+      - GM
+      - GE
+      - DE
+      - GH
+      - GI
+      - GR
+      - GL
+      - GD
+      - GP
+      - GU
+      - GT
+      - GG
+      - GN
+      - GW
+      - GY
+      - HT
+      - HM
+      - VA
+      - HN
+      - HK
+      - HU
+      - IS
+      - IN
+      - ID
+      - IR
+      - IQ
+      - IE
+      - IM
+      - IL
+      - IT
+      - JM
+      - JP
+      - JE
+      - JO
+      - KZ
+      - KE
+      - KI
+      - KP
+      - KR
+      - KW
+      - KG
+      - LA
+      - LV
+      - LB
+      - LS
+      - LR
+      - LY
+      - LI
+      - LT
+      - LU
+      - MO
+      - MK
+      - MG
+      - MW
+      - MY
+      - MV
+      - ML
+      - MT
+      - MH
+      - MQ
+      - MR
+      - MU
+      - YT
+      - MX
+      - FM
+      - MD
+      - MC
+      - MN
+      - MS
+      - MA
+      - MZ
+      - MM
+      - NA
+      - NR
+      - NP
+      - NL
+      - AN
+      - NC
+      - NZ
+      - NI
+      - NE
+      - NG
+      - NU
+      - NF
+      - MP
+      - NO
+      - OM
+      - PK
+      - PW
+      - PS
+      - PA
+      - PG
+      - PY
+      - PE
+      - PH
+      - PN
+      - PL
+      - PT
+      - PR
+      - QA
+      - RE
+      - RO
+      - RU
+      - RW
+      - SH
+      - KN
+      - LC
+      - PM
+      - VC
+      - WS
+      - SM
+      - ST
+      - SA
+      - SN
+      - CS
+      - SC
+      - SL
+      - SG
+      - SK
+      - SI
+      - SB
+      - SO
+      - ZA
+      - GS
+      - ES
+      - LK
+      - SD
+      - SR
+      - SJ
+      - SZ
+      - SE
+      - CH
+      - SY
+      - TW
+      - TJ
+      - TZ
+      - TH
+      - TL
+      - TG
+      - TK
+      - TO
+      - TT
+      - TN
+      - TR
+      - TM
+      - TC
+      - TV
+      - UG
+      - UA
+      - AE
+      - GB
+      - US
+      - UM
+      - UY
+      - UZ
+      - VU
+      - VE
+      - VN
+      - VG
+      - VI
+      - WF
+      - EH
+      - YE
+      - ZM
+      - ZW
+    validation:
+      - required_with:stripe_public_key
+      - required_with:stripe_secret_key
+      - required_with:stripe_webhook_secret_key
+  shipping_methods:
+    label: Shipping Methods
+    tab: Shipping
+    commentAbove: Available shipping methods.
+    type: repeater
+    prompt: Add new method.
+    itemsExpanded: false
+    permissions: tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    trigger:
+      action: show
+      field: enable_shop
+      condition: checked
+    form:
+      fields:
+        title:
+          label: Shipping Method Name
+          type: text
+          commentAbove: Name of your shipping method.
+          span: left
+        price:
+          label: Shipping Price
+          type: number
+          commentAbove: Price of the shipping method.
+          span: right
+          validation:
+            - numeric
+        section:
+          label: Delivery Estimate
+          type: section
+          comment: The estimate time-window the delivery will arrive in business days.
+        delivery_estimate_min:
+          label: Minimum
+          commentAbove: The minimum time that a package may arrive.
+          type: number
+          span: left
+          validation:
+            - integer
+        delivery_estimate_max:
+          label: Maximum
+          commentAbove: The maximum time that a package may arrive.
+          type: number
+          span: right
+          validation:
+            - integer
+  notification_email:
+    type: text
+    label: Notification Email
+    commentAbove: Specify an email to send email notifications to. Form Submissions & Shop Orders default to this email
+    tab: Mail Notifications
+    span: left
+    permissions: 
+      - tailor.entry.f04b58ea6d8011edaa98d348ccf890ef
+      - tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    validation:
+      - email
+      - required_with:stripe_public_key
+      - required_with:stripe_secret_key
+      - required_with:stripe_webhook_secret_key
+  notification_email_recipient_name:
+    type: text
+    label: Recipient Name
+    tab: Mail Notifications
+    commentAbove: The name of the person receiving the notification email. Form Submissions & Shop Orders default to this name
+    span: right
+    permissions: 
+      - tailor.entry.f04b58ea6d8011edaa98d348ccf890ef
+      - tailor.entry.2a9a76d0010c11ed90b6fc95f7401555
+    validation:
+      - required_with:notification_email
+  recaptcha_section:
+    type: section
+    label: Recaptcha Keys
+    comment: Recaptcha helps limit spam from forms in the backend. Only v2 is supported. You can get your keys <a href="https://www.google.com/recaptcha/admin#list">here</a>
+    commentHtml: true
+    tab: Forms
+    permissions: tailor.entry.f04b58ea6d8011edaa98d348ccf890ef
+  recaptcha_site_key:
+    type: text
+    label: Recaptcha Site Key
+    tab: Forms
+    permissions: tailor.entry.f04b58ea6d8011edaa98d348ccf890ef
+  recaptcha_secret_key:
+    type: text
+    label: Recaptcha Secret Key
+    tab: Forms
+    permissions: tailor.entry.f04b58ea6d8011edaa98d348ccf890ef
